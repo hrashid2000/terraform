@@ -1,6 +1,6 @@
 resource "aws_vpc" "main" {
   cidr_block       = var.vpccidr
-  region = var.region
+  
   enable_dns_hostnames = true
   tags = {
     Name = "main-vpc"
@@ -10,7 +10,6 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public-subnet" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.pubsubnetcidr
-
   tags = {
     Name = "public-subnet"
   }
